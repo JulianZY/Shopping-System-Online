@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- <!DOCTYPE validators PUBLIC
+        "-//Apache Struts//XWork Validator 1.0.2//EN"
+        "http://struts.apache.org/dtds/xwork-validator-1.0.2.dtd"> -->
+        <!DOCTYPE validators PUBLIC
+        "-//Apache Struts//XWork Validator 1.0.2//EN"
+        "http://struts.apache.org/dtds/xwork-validator-1.0.2.dtd">
+        
+        
+<validators>
+    <!-- name值为需要被校验的字段，这里对email字段进行校验 -->
+    <field name="bossname">
+        <!-- type值为校验器名，requiredstring：非空字符串校验器 -->
+        <field-validator type="requiredstring">
+        	<param name="trim">true</param>
+            <message>店主名不能为空</message>
+        </field-validator>
+        <!-- 一个字段可以配置多个校验器，email：校验邮箱格式 -->
+        <field-validator type="regex">
+        	<!-- 注意！2.3.15前的版本使用 expression 参数 -->
+            <param name="regexExpression"><![CDATA[^(?!.*(\*|\.|\?|\+|\$|\^|\[|\]|\(|\)|\{|\}|\||\\|\/|\]|%|#|@|&|\$)).*$]]></param>
+            <message>名字中不能包含"!、/、\、#、%、@、$、^、?"等字符！！！！</message>
+        </field-validator>
+    </field>
+    
+    <field name="shopname">
+        <!-- type值为校验器名，requiredstring：非空字符串校验器 -->
+        <field-validator type="requiredstring">
+        	<param name="trim">true</param>
+            <message>店铺名不能为空</message>
+        </field-validator>
+        <!-- 一个字段可以配置多个校验器，email：校验邮箱格式 -->
+        <field-validator type="regex">
+        	<!-- 注意！2.3.15前的版本使用 expression 参数 -->
+            <param name="regexExpression"><![CDATA[^(?!.*(\*|\.|\?|\+|\$|\^|\[|\]|\(|\)|\{|\}|\||\\|\/|\]|%|#|@|&|\$)).*$]]></param>
+            <message>名字中不能包含"!、/、\、#、%、@、$、^、?"等字符！！！！</message>
+        </field-validator>
+    </field>
+    
+    <field name="truename">
+        <!-- type值为校验器名，requiredstring：非空字符串校验器 -->
+        <field-validator type="requiredstring">
+        	<param name="trim">true</param>
+            <message>名字不能为空</message>
+        </field-validator>
+        <!-- 一个字段可以配置多个校验器，email：校验邮箱格式 -->
+        <field-validator type="regex">
+        	<!-- 注意！2.3.15前的版本使用 expression 参数 -->
+            <param name="regexExpression"><![CDATA[^(?!.*(\*|\.|\?|\+|\$|\^|\[|\]|\(|\)|\{|\}|\||\\|\/|\])).*$]]></param>
+            <message>名字中不能包含"!、/、\、#、%、@、$、^、?"等字符！！！！</message>
+        </field-validator>
+    </field>
+    
+    <field name="password">
+        <!-- type值为校验器名，requiredstring：非空字符串校验器 -->
+        <field-validator type="requiredstring">
+        	<param name="trim">true</param>
+            <message>密码不能为空</message>
+        </field-validator>
+        <!-- 一个字段可以配置多个校验器，email：校验邮箱格式 -->
+        <field-validator type="regex">
+        	<!-- 注意！2.3.15前的版本使用 expression 参数 -->
+            <param name="regexExpression"><![CDATA[^(?!.*(\*|\.|\?|\+|\$|\^|\[|\]|\(|\)|\{|\}|\||\\|\/|\]|#|@|&|%|\$)).*$]]></param>
+            <message>密码中不能包含"!、/、\、#、%、@、$、^、?"等字符！！！！</message>
+        </field-validator>
+        <field-validator type="stringlength">
+        	<!-- 注意！2.3.15前的版本使用 expression 参数 -->
+            <param name="maxLength">20</param>
+            <param name="minLength">6</param>
+            <message>密码长度为：6~20</message>
+        </field-validator>
+    </field>
+    <field name="repassword">
+        <!-- type值为校验器名，requiredstring：非空字符串校验器 -->
+        <field-validator type="requiredstring">
+        	<param name="trim">true</param>
+            <message>确认密码不能为空</message>
+        </field-validator>
+        <!-- 一个字段可以配置多个校验器，email：校验邮箱格式 -->
+        <field-validator type="regex">
+        	<!-- 注意！2.3.15前的版本使用 expression 参数 -->
+            <param name="regexExpression"><![CDATA[^(?!.*(\*|\.|\?|\+|\$|\^|\[|\]|\(|\)|\{|\}|\||\\|\/|\]|#|@|&|%|\$)).*$]]></param>
+            <message>确认密码中不能包含"!、/、\、#、%、@、$、^、?"等字符！！！！</message>
+        </field-validator>
+        <field-validator type="stringlength">
+        	<!-- 注意！2.3.15前的版本使用 expression 参数 -->
+            <param name="maxLength">20</param>
+            <param name="minLength">6</param>
+            <message>确认密码长度为：6~20</message>
+        </field-validator>
+        <field-validator type="fieldexpression">
+        	<!-- 注意！2.3.15前的版本使用 expression 参数 -->
+            <param name="expression"><![CDATA[repassword==password]]></param>
+            <message>两次密码输入不一致</message>
+        </field-validator>
+    </field>
+    <field name="mail">
+        <!-- type值为校验器名，requiredstring：非空字符串校验器 -->
+        <field-validator type="requiredstring">
+        	<param name="trim">true</param>
+            <message>邮箱不能为空</message>
+        </field-validator>
+        <!-- 一个字段可以配置多个校验器，email：校验邮箱格式 -->
+         <field-validator type="email">
+            <message>邮箱格式错误</message>
+        </field-validator>
+    </field>
+    <field name="tele">
+        <!-- 一个字段可以配置多个校验器，email：校验邮箱格式 -->
+         <field-validator type="regex">
+            <param name="regexExpression"><![CDATA[\d{11}]]></param>
+            <message>电话号码格式不正确</message>
+        </field-validator>
+    </field>
+</validators>

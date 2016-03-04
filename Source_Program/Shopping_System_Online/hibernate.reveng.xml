@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-reverse-engineering PUBLIC "-//Hibernate/Hibernate Reverse Engineering DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-reverse-engineering-3.0.dtd" >
+
+<hibernate-reverse-engineering>
+	<table name="user" catalog="shoppingsystem" class="Dao.User">
+		<primary-key>
+			<generator class="native"></generator>
+		</primary-key>
+		<column name="shopcar_id"></column>
+	</table>
+	<table name="shopcar" catalog="shoppingsystem"
+		class="Model.Shopcar">
+		<primary-key>
+			<generator class="native"></generator>
+		</primary-key>
+	</table>
+	<table name="power" catalog="shoppingsystem" class="Model.Power">
+		<primary-key>
+			<generator class="native"></generator>
+		</primary-key>
+	</table>
+	<table name="sendmessage" catalog="shoppingsystem"
+		class="Model.Sendmessage">
+		<primary-key>
+			<generator class="native"></generator>
+		</primary-key>
+	</table>
+	<table name="goods" catalog="shoppingsystem" class="Model.Goods">
+		<primary-key>
+			<generator class="native"></generator>
+		</primary-key>
+	</table>
+	<table name="boss" catalog="shoppingsystem" class="Model.Boss">
+		<primary-key>
+			<generator class="native"></generator>
+		</primary-key>
+	</table>
+	<table name="manager" catalog="shoppingsystem"
+		class="Model.Manager">
+		<primary-key>
+			<generator class="native"></generator>
+		</primary-key>
+	</table>
+	<table name="shop" catalog="shoppingsystem" class="Model.Shop">
+		<primary-key>
+			<generator class="native"></generator>
+		</primary-key>
+	</table>
+	<table name="comment" catalog="shoppingsystem"
+		class="Model.Comment">
+		<primary-key>
+			<generator class="native"></generator>
+		</primary-key>
+	</table>
+	<table name="orderlist" catalog="shoppingsystem"
+		class="Model.Orderlist">
+		<primary-key>
+			<generator class="native"></generator>
+		</primary-key>
+	</table>
+	<table name="goodstype" catalog="shoppingsystem"
+		class="Model.Goodstype">
+		<primary-key>
+			<generator class="native"></generator>
+		</primary-key>
+	</table>
+	<table name="bank" catalog="shoppingsystem" class="Model.Bank">
+		<primary-key>
+			<generator class="native"></generator>
+		</primary-key>
+	</table>
+	<table name="bankaccount" catalog="shoppingsystem"
+		class="Model.Bankaccount">
+		<primary-key>
+			<generator class="native"></generator>
+		</primary-key>
+	</table>
+	<table name="transrecord" catalog="shoppingsystem"
+		class="Dao.Transrecord">
+		<primary-key>
+			<generator class="native"></generator>
+		</primary-key>
+	</table>
+</hibernate-reverse-engineering>

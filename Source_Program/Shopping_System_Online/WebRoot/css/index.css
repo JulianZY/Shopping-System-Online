@@ -1,0 +1,15 @@
+#allcontainer {margin:0 auto; background-image:url(images/bigbackground.jpg);width:100%;height:1200px;}
+		#container {margin:0 auto; width:900px;}
+		#header { height:150px; margin-bottom:5px; background-image:url(images/header.jpg);}
+		#mainContent { margin-bottom:5px;}
+		#sidebar { float:left; width:200px; height:1000px; background:#6f6;}
+		#content { float:right; width:695px; height:1000px; background-image:url(images/blank.png);}/*因为是固定宽度，采用左右浮动方法可有效避免ie 3像素bug*/
+		#userheadphoto { float:left; width:190; height:190; margin:0 auto;}
+				
+		#content2 { float:right; width:695px; height:1000px; background-image:url(images/blank.png); solid:#dbdbdb;}/*因为是固定宽度，采用左右浮动方法可有效避免ie 3像素bug*/
+		#content2 ul { padding:0 0 5px 0; overflow:auto;}
+		#content2 ul li { width:134px; float:left; margin:5px 0 0px 11px; display:inline; text-align:center; list-style-type:none;}
+		#content2 ul li a {	display:block;}
+		#content2 ul li a:hover {	color:#ff0;}
+		#content2 ul li img { margin-bottom:3px;}
+		a:hover {	color:#ff0;}

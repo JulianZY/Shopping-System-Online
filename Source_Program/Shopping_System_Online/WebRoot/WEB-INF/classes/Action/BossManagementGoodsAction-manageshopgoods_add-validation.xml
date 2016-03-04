@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- <!DOCTYPE validators PUBLIC
+        "-//Apache Struts//XWork Validator 1.0.2//EN"
+        "http://struts.apache.org/dtds/xwork-validator-1.0.2.dtd"> -->
+        <!DOCTYPE validators PUBLIC
+        "-//Apache Struts//XWork Validator 1.0.2//EN"
+        "http://struts.apache.org/dtds/xwork-validator-1.0.2.dtd">
+        
+        
+<validators>
+    <!-- name值为需要被校验的字段，这里对email字段进行校验 -->
+    <field name="searchfile">
+        <!-- type值为校验器名，requiredstring：非空字符串校验器 -->
+        <field-validator type="requiredstring">
+        	<param name="trim">true</param>
+            <message>商品名不能为空</message>
+        </field-validator>
+        <!-- 一个字段可以配置多个校验器，email：校验邮箱格式 -->
+        <field-validator type="regex">
+        	<!-- 注意！2.3.15前的版本使用 expression 参数 -->
+            <param name="regexExpression"><![CDATA[^(?!.*(\*|\.|\?|\+|\$|\^|\[|\]|\(|\)|\{|\}|\||\\|\/|\]|%|#|@|&|\$)).*$]]></param>
+            <message>名字中不能包含"!、/、\、#、%、@、$、^、?"等字符！！！！</message>
+        </field-validator>
+    </field>
+    <field name="goodsintroduce">
+        <!-- type值为校验器名，requiredstring：非空字符串校验器 -->
+        <field-validator type="requiredstring">
+        	<param name="trim">true</param>
+            <message>介绍不能为空</message>
+        </field-validator>
+        <!-- 一个字段可以配置多个校验器，email：校验邮箱格式 -->
+         <field-validator type="stringlength">
+         	<param name="minLength">0</param>
+         	<param name="maxLength">200</param>
+            <message>输入字数不符规定</message>
+        </field-validator>
+    </field>
+    <field name="goodsnum">
+        <!-- 一个字段可以配置多个校验器，email：校验邮箱格式 -->
+         <field-validator type="int">
+            <param name="min">0</param>
+            <message>商品数量最少为0</message>
+        </field-validator>
+    </field>
+     <field name="goodsmark">
+        <!-- 一个字段可以配置多个校验器，email：校验邮箱格式 -->
+         <field-validator type="int">
+            <param name="min">0</param>
+            <message>商品积分不为负</message>
+        </field-validator>
+    </field>
+     <field name="goodsprice">
+        <!-- 一个字段可以配置多个校验器，email：校验邮箱格式 -->
+         <field-validator type="double">
+            <param name="minInclusive">0.00</param>
+            <message>商品价格不为负</message>
+        </field-validator>
+    </field>
+</validators>

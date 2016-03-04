@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- <!DOCTYPE validators PUBLIC
+        "-//Apache Struts//XWork Validator 1.0.2//EN"
+        "http://struts.apache.org/dtds/xwork-validator-1.0.2.dtd"> -->
+        <!DOCTYPE validators PUBLIC
+        "-//Apache Struts//XWork Validator 1.0.2//EN"
+        "http://struts.apache.org/dtds/xwork-validator-1.0.2.dtd">
+        
+        
+<validators>
+    <!-- name值为需要被校验的字段，这里对email字段进行校验 -->
+    <field name="sendtoname">
+        <!-- type值为校验器名，requiredstring：非空字符串校验器 -->
+        <field-validator type="requiredstring">
+        	<param name="trim">true</param>
+            <message>名字不能为空</message>
+        </field-validator>
+        <!-- 一个字段可以配置多个校验器，email：校验邮箱格式 -->
+        <field-validator type="regex">
+        	<!-- 注意！2.3.15前的版本使用 expression 参数 -->
+            <param name="regexExpression"><![CDATA[^(?!.*(\*|\.|\?|\+|\$|\^|\[|\]|\(|\)|\{|\}|\||\\|\/|\]|%|#|@|&|\$)).*$]]></param>
+            <message>名字中不能包含"!、/、\、#、%、@、$、^、?"等字符！！！！</message>
+        </field-validator>
+    </field>
+    
+    
+    <field name="sendpostcode">
+        <!-- 一个字段可以配置多个校验器，email：校验邮箱格式 -->
+         <field-validator type="regex">
+            <param name="regexExpression"><![CDATA[\d{6}]]></param>
+            <message>邮政编码格式不正确</message>
+        </field-validator>
+    </field>
+</validators>

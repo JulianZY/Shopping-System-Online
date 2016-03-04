@@ -1,0 +1,606 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+
+    <!-- 
+    <constant name="struts.enable.DynamicMethodInvocation" value="false" />
+    <constant name="struts.devMode" value="true" />
+
+    <package name="default" namespace="/" extends="struts-default">
+
+        <default-action-ref name="index" />
+
+        <global-results>
+            <result name="error">/error.jsp</result>
+        </global-results>
+
+        <global-exception-mappings>
+            <exception-mapping exception="java.lang.Exception" result="error"/>
+        </global-exception-mappings>
+
+        <action name="index">
+            <result type="redirectAction">
+                <param name="actionName">HelloWorld</param>
+                <param name="namespace">/example</param>
+            </result>
+        </action>
+    </package>
+
+     <include file="example.xml"/>
+
+    Add packages here 
+    -->
+    
+     <constant name="struts.enable.DynamicMethodInvocation" value="true" /> 
+     
+     <!-- 该属性指定需要Struts2处理的请求后缀，该属性的默认值是action，即所有匹配*.action的请求都由Struts2处理。
+        如果用户需要指定多个请求后缀，则多个后缀之间以英文逗号（,）隔开。 -->
+   <!--  <constant name="struts.action.extension" value="do" /> -->
+    <!-- 设置浏览器是否缓存静态内容,默认值为true(生产环境下使用),开发阶段最好关闭 -->
+    <constant name="struts.serve.static.browserCache" value="false" />
+    <!-- 当struts的配置文件修改后,系统是否自动重新加载该文件,默认值为false(生产环境下使用),开发阶段最好打开 -->
+    <constant name="struts.configuration.xml.reload" value="true" />
+    <!-- 开发模式下使用,这样可以打印出更详细的错误信息 -->
+    <constant name="struts.devMode" value="true" />
+    <!-- 默认的视图主题 -->
+    <constant name="struts.ui.theme" value="simple" />
+    <!--<constant name="struts.objectFactory" value="spring" />-->
+    <!--解决乱码    -->
+    <constant name="struts.i18n.encoding" value="UTF-8" />
+    <!-- 指定允许上传的文件最大字节数。默认值是2097152(2M) -->
+    <constant name="struts.multipart.maxSize" value="10701096"/>
+    
+   <!--  <package name="default" namespace="/" extends="struts-default">
+    
+        <default-action-ref name="exam1" />
+     
+        <action name="index">
+            <result>
+                /index.jsp
+            </result>
+        </action>
+        
+        <action name="exam1" class="exam1.ExampleAction1" method="ace">
+            <result name="success">
+                /Hello.jsp
+            </result>
+        </action>
+        
+        <action name="exam11" class="exam1.ExampleAction1" method="nd">
+            <result name="success">
+                /Hello2.jsp
+            </result>
+        </action>
+         
+        <action name="ex_*" class="exam1.ExampleAction1">
+            <result name="success">
+                /Hello{1}.jsp
+            </result>
+        </action>
+        
+        <action name="exam2" class="exam2.UserAction">
+            <result name="success">
+                /Hello2.jsp
+            </result>
+            <result name="error">
+                /error1.jsp
+            </result>
+        </action>
+    </package> -->
+    
+    <package name="default" namespace="/" extends="struts-default">
+    
+        <default-action-ref name="index" />
+     
+        <action name="index">
+            <result>
+                /index.jsp
+            </result>
+        </action>
+         <action name="login">
+            <result>
+                /check.jsp
+            </result>
+        </action>
+        
+        <action name="register" class="Action.RegisterAction" method="check">
+            <result name="success">
+                /success.jsp
+            </result>
+            <result name="failed">
+                /error1.jsp
+            </result>
+            <result name="input">
+                /register.jsp
+            </result>
+        </action>
+        
+        <action name="apply" class="Action.ApplyAction" method="check">
+            <result name="success">
+                /success.jsp
+            </result>
+            <result name="failed">
+                /error1.jsp
+            </result>
+            <result name="input">
+                /apply.jsp
+            </result>
+        </action>
+        
+        <action name="changemessage" class="Action.MessageChangeAction" method="check">
+            <result name="success">
+				/success.jsp
+            </result>
+            <result name="failed">
+                /error1.jsp
+            </result>
+            <result name="input">
+                /MessageChange.jsp
+            </result>
+        </action>
+       <!--  <action name="checklogin" class="Action.CheckLoginAction" method="check">
+        	<result name="success">
+        		/index.jsp
+        	</result>
+        	<result name="failed">
+        		/index.jsp
+        	</result>
+        </action> -->
+        <action name="checklogin">
+        	<result>
+        		/index.jsp
+        	</result>
+        </action>
+        <action name="showtransrecord">
+        	<result>
+        		/ShowTRecord.jsp
+        	</result>
+        </action>
+        <action name="managegoodstypes_delete" class="Action.ManageGoodstypeAction" method="delete">
+        	<result name="success">
+        		/ManageGoodstype.jsp
+        	</result>
+        	<result name="failed">
+                /error1.jsp
+            </result>
+        </action>
+        <action name="managegoodstypes_add" class="Action.ManageGoodstypeAction" method="add">
+        	<result name="success">
+        		/ManageGoodstype.jsp
+        	</result>
+        	<result name="failed">
+                /error1.jsp
+            </result>
+        </action>
+        <action name="managegoodstypes_change" class="Action.ManageGoodstypeAction" method="change">
+        	<result name="success">
+        		/ManageGoodstype.jsp
+        	</result>
+        	<result name="failed">
+                /error1.jsp
+            </result>
+        </action>
+        
+        <action name="manager_update_jumppage">
+        	<result>
+        		/ManagerUpdate.jsp
+        	</result>
+        </action>
+        <action name="selectshowgoodstype">
+        	<result>
+        		/ShowGoods.jsp
+        	</result>
+        </action>
+        
+        <action name="manageuser_delete" class="Action.ManagerManagementDeleteAction" method="deleteuser">
+        	<result name="success">
+        		/ShowUser.jsp
+        	</result>
+        	<result name="failed">
+                /error1.jsp
+            </result>
+        </action>
+        <action name="manageboss_delete" class="Action.ManagerManagementDeleteAction" method="deleteboss">
+        	<result name="success">
+        		/ShowBoss.jsp
+        	</result>
+        	<result name="failed">
+                /error1.jsp
+            </result>
+        </action>
+        <action name="managegoods_delete" class="Action.ManagerManagementDeleteAction" method="deletegoods">
+        	<result name="success">
+        		/ShowGoods.jsp
+        	</result>
+        	<result name="failed">
+                /error1.jsp
+            </result>
+        </action>
+        <action name="manageuser_update" class="Action.ManagerManagementUpdateUserAction" method="update">
+        	<result name="success">
+        		/success.jsp
+        	</result>
+        	<result name="failed">
+                /error1.jsp
+            </result>
+            <result name="input">
+                /ManagerUpdate.jsp
+            </result>
+        </action>
+        <action name="manageboss_update" class="Action.ManagerManagementUpdateBossAction" method="update">
+        	<result name="success">
+        		/success.jsp
+        	</result>
+        	<result name="failed">
+                /error1.jsp
+            </result>
+            <result name="input">
+                /ManagerUpdate.jsp
+            </result>
+        </action> 
+        <action name="managegoods_update" class="Action.ManagerManagementUpdateGoodsAction" method="update">
+        	<result name="success">
+        		/success.jsp
+        	</result>
+        	<result name="failed">
+                /error1.jsp
+            </result>
+            <result name="input">
+                /ManagerUpdate.jsp
+            </result>
+        </action> 
+        <action name="managegoods_goodstype_add" class="Action.ManagerManagementUpdateGoodsAction" method="addgoodstype">
+        	<result name="success">
+        		/ManagerUpdate.jsp
+        	</result>
+        	<result name="failed">
+                /error1.jsp
+            </result>
+        </action>
+        <action name="managegoods_goodstype_delete" class="Action.ManagerManagementUpdateGoodsAction" method="deletegoodstype">
+        	<result name="success">
+        		/ManagerUpdate.jsp
+        	</result>
+        	<result name="failed">
+                /error1.jsp
+            </result>
+        </action>
+        
+        <action name="orderlist_delete" class="Action.OrderlistDeleteAction" method="delete">
+        	<result name="success">
+        		/ShowOrderlist.jsp
+        	</result>
+        	<result name="failed">
+                /error1.jsp
+            </result>
+        </action> 
+       <action name="orderlist_pay_jump" class="Action.PayAction" method="pay">
+        	<result name="success">
+        		/success.jsp
+        	</result>
+        	<result name="failed">
+                /error1.jsp
+            </result>
+        </action>
+        <action name="bossmanagement_orderlist_typeselect">
+        	<result>
+        		/ShowOrderlist.jsp
+        	</result>
+        </action>
+        <action name="bossmanagement_goods_select">
+        	<result>
+        		/ShowShopGoods.jsp
+        	</result>
+       	</action>
+       	<action name="bossmanagement_goods_delete" class="Action.BossManagementGoodsAction" method="delete">
+        	<result name="success">
+        		/ShowShopGoods.jsp
+        	</result>
+        	<result name="failed">
+                /error1.jsp
+            </result>
+        </action>
+        <action name="bossmanagement_goods_update_jump">
+        	<result>
+        		/ShopGoodsUpdate.jsp
+        	</result>
+        </action>
+        <action name="bossmanagement_goodscomments">
+        	<result>
+        		/ShowComment.jsp
+        	</result>
+        </action>
+        <action name="bossmanagement_goods_add_jump">
+        	<result>
+        		/ShopGoodsUpdate.jsp
+        	</result>
+        </action>
+        <action name="manageshopgoods_update" class="Action.BossManagementGoodsAction" method="update">
+        	<result name="success">
+        		/success.jsp
+        	</result>
+        	<result name="failed">
+                /error1.jsp
+            </result>
+            <result name="input">
+                /ShopGoodsUpdate.jsp
+            </result>
+        </action>
+        <action name="manageshopgoods_goodstype_add" class="Action.BossManagementGoodsAction" method="addgoodstype">
+        	<result name="success">
+        		/ShopGoodsUpdate.jsp
+        	</result>
+        	<result name="failed">
+                /error1.jsp
+            </result>
+        </action>
+        <action name="manageshopgoods_goodstype_delete" class="Action.BossManagementGoodsAction" method="deletegoodstype">
+        	<result name="success">
+        		/ShopGoodsUpdate.jsp
+        	</result>
+        	<result name="failed">
+                /error1.jsp
+            </result>
+        </action>
+        <action name="manageshopgoods_add" class="Action.BossManagementGoodsAction" method="add">
+        	<result name="success">
+        		/success.jsp
+        	</result>
+        	<result name="failed">
+                /error1.jsp
+            </result>
+            <result name="input">
+                /ShopGoodsUpdate.jsp
+            </result>
+        </action>
+        <action name="fillmoney" class="Action.FillmoneyAction" method="fillmoney">
+        	<result name="success">
+        		/success.jsp
+        	</result>
+        	<result name="failed">
+                /error1.jsp
+            </result>
+        </action>
+        <action name="usermanagement_sendmessage_delete" class="Action.UserManagementSendmessageUpdateAction" method="delete">
+        	<result name="success">
+        		/AdressComplete.jsp
+        	</result>
+        	<result name="failed">
+                /error1.jsp
+            </result>
+        </action>
+        <action name="usermanagement_sendmessage_update_jump">
+        	<result>
+        		/UserSendmessageUpdate.jsp
+        	</result>
+        </action>
+        <action name="usermanagement_sendmessage_add_jump">
+        	<result>
+        		/UserSendmessageUpdate.jsp
+        	</result>
+        </action>
+        <action name="usermanagement_sendmessage_update" class="Action.UserManagementSendmessageUpdateAction" method="update">
+        	<result name="success">
+        		/success.jsp
+        	</result>
+        	<result name="failed">
+                /error1.jsp
+            </result>
+            <result name="input">
+                /UserSendmessageUpdate.jsp
+            </result>
+        </action>
+        <action name="usermanagement_sendmessage_add" class="Action.UserManagementSendmessageUpdateAction" method="add">
+        	<result name="success">
+        		/success.jsp
+        	</result>
+        	<result name="failed">
+                /error1.jsp
+            </result>
+            <result name="input">
+                /UserSendmessageUpdate.jsp
+            </result>
+        </action>
+        
+        <action name="orderlist_create" class="Action.OrderlistCreateAction" method="createorder">
+        	<result name="success">
+        		/GoodsWatch.jsp
+        	</result>
+        	<result name="failed">
+                /error1.jsp
+            </result>
+        </action>
+        <action name="comment_create" class="Action.CommentCreateAction" method="createcomment">
+        	<result name="success">
+        		/success.jsp
+        	</result>
+        	<result name="failed">
+                /error1.jsp
+            </result>
+            <result name="input">
+                /GoodsWatch.jsp
+            </result>
+        </action>
+       
+       
+       
+       
+        <!-- <action name="upload" class="Action.TestUploadAction" method="save">
+        	<result name="success">
+        		/examupload.jsp
+        	</result>
+        	
+        	<interceptor-ref name="fileUpload">
+                文件过滤
+                <param name="allowedTypes"> image/bmp,image/png,image/gif,image/jpeg,image/jpg,image/x-png, image/pjpeg</param>
+                文件大小, 以字节为单位
+                <param name="maximumSize">1025956</param>
+            </interceptor-ref>
+            默认拦截器必须放在fileUpload之后，否则无效
+            <interceptor-ref name="defaultStack" />
+        </action> -->
+        
+        <!--                        -->
+        
+        <action name="headphoto_change_jump">
+        	<result>
+        		/UploadHP.jsp
+        	</result>
+        </action>
+        
+        <action name="headphoto_change_default" class="Action.HeadphotoUpdateAction" method="reset">
+        	<result name="success">
+        		/UserManagement.jsp
+        	</result>
+        	<result name="failed">
+                /error1.jsp
+            </result>
+        </action>
+        
+        <action name="uploadheadphoto" class="Action.HeadphotoUpdateAction" method="update">
+        	<result name="success">
+        		/UserManagement.jsp
+        	</result>
+        	<result name="failed">
+                /error1.jsp
+            </result>
+            
+            <interceptor-ref name="fileUpload">
+                <!-- 文件过滤 -->
+                <param name="allowedTypes"> image/bmp,image/png,image/gif,image/jpeg,image/jpg,image/x-png, image/pjpeg</param>
+                <!-- 文件大小, 以字节为单位 -->
+                <param name="maximumSize">1025956</param>
+            </interceptor-ref>
+            <!-- 默认拦截器必须放在fileUpload之后，否则无效 -->
+            <interceptor-ref name="defaultStack" />
+            <result name="input">
+                /UploadHP.jsp
+            </result>
+        </action>
+        
+        <action name="goodspicture_update_jump">
+        	<result>
+        		/UploadGP.jsp
+        	</result>
+        </action>
+        
+        <action name="deletegoodspicture" class="Action.GoodspictureUpdateAction" method="delete">
+        	<result name="success">
+        		/UploadGP.jsp
+        	</result>
+        	<result name="failed">
+                /error1.jsp
+            </result>
+        </action>
+        
+        <action name="uploadgoodspicture" class="Action.GoodspictureUpdateAction" method="add">
+        	<result name="success">
+        		/UploadGP.jsp
+        	</result>
+        	<result name="failed">
+                /error1.jsp
+            </result>
+            
+            <interceptor-ref name="fileUpload">
+                <!-- 文件过滤 -->
+                <param name="allowedTypes"> image/bmp,image/png,image/gif,image/jpeg,image/jpg,image/x-png, image/pjpeg</param>
+                <!-- 文件大小, 以字节为单位 -->
+                <param name="maximumSize">1025956</param>
+            </interceptor-ref>
+            <!-- 默认拦截器必须放在fileUpload之后，否则无效 -->
+            <interceptor-ref name="defaultStack" />
+        </action>
+        
+        <action name="bossmanagement_shopmessage_update" class="Action.ShopMessageUpdateAction" method="update">
+        	<result name="success">
+        		/BossManagement.jsp
+        	</result>
+        	<result name="failed">
+                /error1.jsp
+            </result>
+            <result name="input">
+                /ShopMessageUpdate.jsp
+            </result>
+        </action>
+        
+        <action name="usererror_return">
+        	<result>
+        		/ManagerUpdate.jsp
+        	</result>
+        </action> 
+        <action name="bosserror_return">
+        	<result>
+        		/ManagerUpdate.jsp
+        	</result>
+        </action> 
+        <action name="goodserror_return">
+        	<result>
+        		/ManagerUpdate.jsp
+        	</result>
+        </action> 
+        
+        
+        <action name="shopgoodsadderror_return">
+        	<result>
+        		/ShopGoodsUpdate.jsp
+        	</result>
+        </action> 
+        <action name="shopgoodsupdateerror_return">
+        	<result>
+        		/ShopGoodsUpdate.jsp
+        	</result>
+        </action> 
+        
+        
+        <action name="sendmessageupdateerror_return">
+        	<result>
+        		/UserSendmessageUpdate.jsp
+        	</result>
+        </action> 
+        <action name="sendmessageadderror_return">
+        	<result>
+        		/UserSendmessageUpdate.jsp
+        	</result>
+        </action> 
+        
+        
+        <action name="commenterror_return">
+        	<result>
+        		/GoodsWatch.jsp
+        	</result>
+        </action> 
+        
+        <action name="commentsuccess_return">
+        	<result>
+        		/GoodsWatch.jsp
+        	</result>
+        </action> 
+        <action name="selectshowway_index">
+        	<result>
+                /index.jsp
+            </result>
+        </action>
+        <action name="watchgoods">
+        	<result>
+                /GoodsWatch.jsp
+            </result>
+        </action>
+        <action name="comment_delete" class="Action.CommentDeleteAction" method="delete">
+        	<result name="success">
+        		/ShowComment.jsp
+        	</result>
+        </action>
+        <!-- <action name="orderlist_pay" class="" method="">
+        	<result name="success">
+        		/ShowOrderlist.jsp
+        	</result>
+        	<result name="failed">
+                /error1.jsp
+            </result>
+        </action>  -->
+    </package> 
+    
+</struts>
